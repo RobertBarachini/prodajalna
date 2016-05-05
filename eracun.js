@@ -148,7 +148,7 @@ var strankaIzRacuna = function(racunId, callback) {
 
 // Izpis računa v HTML predstavitvi na podlagi podatkov iz baze
 streznik.post('/izpisiRacunBaza', function(zahteva, odgovor) {
-  odgovor.end();
+  odgovor.redirect('/izpisiRacun');
 })
 
 // Izpis računa v HTML predstavitvi ali izvorni XML obliki

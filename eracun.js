@@ -231,11 +231,11 @@ streznik.get('/prijava', function(zahteva, odgovor) {
       vrniRacune(function(napaka2, racuni) {
         if(uspesna == 1) //spremeni sporocila na doloceno
         {
-          odgovor.render('prijava', {sporocilo: "Uspesna prijava!", seznamStrank: stranke, seznamRacunov: racuni});  
+          odgovor.render('prijava', {sporocilo: "Stranka je bila uspešno registrirana.", seznamStrank: stranke, seznamRacunov: racuni});  
         }
         else if(uspesna == 0)
         {
-          odgovor.render('prijava', {sporocilo: "Neuspesna prijava!", seznamStrank: stranke, seznamRacunov: racuni});
+          odgovor.render('prijava', {sporocilo: "Prišlo je do napake pri registraciji nove stranke. Prosim preverite vnešene podatke in poskusite znova.", seznamStrank: stranke, seznamRacunov: racuni});
         }
         else
         {

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <% if (vizualiziraj) { %>
 <?xml-stylesheet type="text/xsl" href="../eSLOG/vizualizacija.xslt"?>
 <% } %>
@@ -169,6 +169,10 @@
 			</KontaktiPodjetja>
 		</PodatkiPodjetja>
 		<!-- naročnik -->
+		<%
+			console.log("HAHAHA");
+			console.log(postavkeRacuna);
+		%>
 		<PodatkiPodjetja>
 			<NazivNaslovPodjetja>
 				<VrstaPartnerja>BY</VrstaPartnerja>
@@ -210,7 +214,11 @@
 			</ReferencniPodatkiPodjetja>
 			<KontaktiPodjetja>
 				<KontaktnaOseba>
-					<ImeOsebe>Dejan Lavbič</ImeOsebe>
+					<ImeOsebe>
+						<%=
+							postavkeRacuna[0].zanr;
+						%>
+					</ImeOsebe>
 				</KontaktnaOseba>
 				<Komunikacije>
 					<StevilkaKomunikacije>38614798000</StevilkaKomunikacije>

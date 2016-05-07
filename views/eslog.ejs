@@ -2,6 +2,19 @@
 <% if (vizualiziraj) { %>
 <?xml-stylesheet type="text/xsl" href="../eSLOG/vizualizacija.xslt"?>
 <% } %>
+
+<%
+	var nameSurname = "";
+	var address = "";
+	var city = "";
+	var postalCode = "";
+	var country = "";
+	var phone = "";
+	var contact = "";
+	var company = "";
+	var fax = "";
+%>
+
 <IzdaniRacunEnostavni xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xds="http://uri.etsi.org/01903/v1.1.1#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.gzs.si/e-poslovanje/sheme/eSLOG_1-6_EnostavniRacun.xsd">
 	<Racun Id="data">
 		<!-- verzija priročnika -->
@@ -178,6 +191,18 @@
 				console.log("HAHAHAHAHAHA");
 				console.log("KAO DA JE IZ BAZE");
 				console.log(customerData[0]);
+				
+				//sedaj doloci glede na bazo
+				nameSurname = customerData[0].FirstName + " " + customerData[0].LastName;
+				address = customerData[0].Address;
+				city = customerData[0].City;
+				postalCode = customerData[0].PostalCode;
+				country = customerData[0].Country;
+				phone = customerData[0].Phone;
+				contact = nameSurname + " (" + customerData[0].Email + ")";
+				company = customerData[0].Company;
+				fax = customerData[0].Fax;
+				
 			}
 			//console.log(postavkeRacuna[0])
 			
@@ -187,27 +212,24 @@
 				<VrstaPartnerja>BY</VrstaPartnerja>
 				<NazivPartnerja>
 					<NazivPartnerja1>
-						NAZIV
+						<%=nameSurname%>
 					</NazivPartnerja1>
-					<NazivPartnerja2>Fakulteta za računalništvo in informatiko</NazivPartnerja2>
-					<NazivPartnerja3>Laboratorij za </NazivPartnerja3>
-					<NazivPartnerja4>podatkovne tehnologije</NazivPartnerja4>
+					<NazivPartnerja2>
+						<%=company%>
+					</NazivPartnerja2>
 				</NazivPartnerja>
 				<Ulica>
-					<Ulica1>Večna pot </Ulica1>
-					<Ulica2>113</Ulica2>
-					<Ulica3>nadstropje 2, kabinet R2.49</Ulica3>
+					<Ulica1><%=address%></Ulica1>
 				</Ulica>
-				<Kraj>Ljubljana</Kraj>
-				<NazivDrzave>Slovenija</NazivDrzave>
-				<PostnaStevilka>1000</PostnaStevilka>
-				<KodaDrzave>SI</KodaDrzave>
+				<Kraj><%=city%></Kraj>
+				<NazivDrzave><%=country%></NazivDrzave>
+				<PostnaStevilka><%=postalCode%></PostnaStevilka>
+				<KodaDrzave></KodaDrzave>
 			</NazivNaslovPodjetja>
 			<FinancniPodatkiPodjetja>
 				<BancniRacun>
 					<StevilkaBancnegaRacuna>SI56020120090111333</StevilkaBancnegaRacuna>
 					<NazivBanke1>Moja banka d.d.</NazivBanke1>
-					<NazivBanke2>Podružnica center</NazivBanke2>
 					<BIC>LJBASI2XXXX</BIC>
 				</BancniRacun>
 			</FinancniPodatkiPodjetja>
@@ -226,15 +248,15 @@
 			<KontaktiPodjetja>
 				<KontaktnaOseba>
 					<ImeOsebe>
-						IME OSEBE
+						<%=contact%>
 					</ImeOsebe>
 				</KontaktnaOseba>
 				<Komunikacije>
-					<StevilkaKomunikacije>38614798000</StevilkaKomunikacije>
+					<StevilkaKomunikacije><%=phone%></StevilkaKomunikacije>
 					<VrstaKomunikacije>TE</VrstaKomunikacije>
 				</Komunikacije>
 				<Komunikacije>
-					<StevilkaKomunikacije>38612419350</StevilkaKomunikacije>
+					<StevilkaKomunikacije><%=fax%></StevilkaKomunikacije>
 					<VrstaKomunikacije>FX</VrstaKomunikacije>
 				</Komunikacije>
 			</KontaktiPodjetja>

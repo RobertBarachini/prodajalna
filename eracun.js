@@ -218,12 +218,28 @@ streznik.get('/izpisiRacun/:oblika', function(zahteva, odgovor)
       } 
       else 
       {
+<<<<<<< HEAD
         odgovor.setHeader('content-type', 'text/xml');
         odgovor.render('eslog', {
         vizualiziraj: zahteva.params.oblika === 'html' ? true : false,
         postavkeRacuna: pesmi,
         fromDatabase: false
         })  
+=======
+        returnCurrentCustomer(customerSelect2, 
+          function(stranka)
+          {
+            odgovor.setHeader('content-type', 'text/xml');
+            
+            odgovor.render('eslog', {
+            vizualiziraj: zahteva.params.oblika === 'html' ? true : false,
+            postavkeRacuna: pesmi,
+            customerData: stranka,
+            fromDatabase: false
+            })
+          }
+        );
+>>>>>>> prikaz-racuna-trenutni
       }
     })
   }
@@ -267,6 +283,23 @@ var vrniStranke = function(callback) {
     }
   );
 };
+<<<<<<< HEAD
+=======
+
+
+//vrni trnuetno izbrano stranko
+var returnCurrentCustomer = function(customerSelect2, callback)
+{
+  //console.log("LOGIRANO");
+  pb.all("SELECT Customer.* FROM Customer WHERE Customer.CustomerId = " + 
+    customerSelect2, 
+    function(napaka, vrstice) 
+    { 
+      callback(vrstice);
+    }
+  );
+}
+>>>>>>> prikaz-racuna-trenutni
 
 // Vrni račune iz podatkovne baze
 var vrniRacune = function(callback) {
@@ -310,6 +343,8 @@ streznik.post('/prijava', function(zahteva, odgovor) {
   });
 })
 
+
+
 // Prikaz strani za prijavo
 streznik.get('/prijava', function(zahteva, odgovor) {
   vrniStranke(function(napaka1, stranke) {
@@ -331,13 +366,23 @@ streznik.get('/prijava', function(zahteva, odgovor) {
     });
 })
 
+<<<<<<< HEAD
 //
+=======
+var customerSelect2;
+
+>>>>>>> prikaz-racuna-trenutni
 // Prikaz nakupovalne košarice za stranko
 streznik.post('/stranka', function(zahteva, odgovor) {
   var form = new formidable.IncomingForm();
   
   form.parse(zahteva, function (napaka1, polja, datoteke) {
+<<<<<<< HEAD
     userChosen = true;
+=======
+    customerSelect2 = polja.seznamStrank;
+    //console.log("TUKAJ 3");
+>>>>>>> prikaz-racuna-trenutni
     odgovor.redirect('/')
   });
 })

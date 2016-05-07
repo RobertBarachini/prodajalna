@@ -218,15 +218,7 @@ streznik.get('/izpisiRacun/:oblika', function(zahteva, odgovor)
       } 
       else 
       {
-
-        odgovor.setHeader('content-type', 'text/xml');
-        odgovor.render('eslog', {
-        vizualiziraj: zahteva.params.oblika === 'html' ? true : false,
-        postavkeRacuna: pesmi,
-        fromDatabase: false
-        })  
-
-        returnCurrentCustomer(customerSelect2, 
+          returnCurrentCustomer(customerSelect2, 
           function(stranka)
           {
             odgovor.setHeader('content-type', 'text/xml');

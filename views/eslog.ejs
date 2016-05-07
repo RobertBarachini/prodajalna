@@ -170,14 +170,25 @@
 		</PodatkiPodjetja>
 		<!-- naročnik -->
 		<%
-			console.log("HAHAHA");
-			console.log(postavkeRacuna);
+			console.log("FROM DATABASE VALUE: " + fromDatabase);
+			//console.log(customerData.FirstName);
+		
+			if(fromDatabase)
+			{
+				console.log("HAHAHAHAHAHA");
+				console.log("KAO DA JE IZ BAZE");
+				console.log(customerData[0]);
+			}
+			//console.log(postavkeRacuna[0])
+			
 		%>
 		<PodatkiPodjetja>
 			<NazivNaslovPodjetja>
 				<VrstaPartnerja>BY</VrstaPartnerja>
 				<NazivPartnerja>
-					<NazivPartnerja1>Univerza v Ljubljani, </NazivPartnerja1>
+					<NazivPartnerja1>
+						NAZIV
+					</NazivPartnerja1>
 					<NazivPartnerja2>Fakulteta za računalništvo in informatiko</NazivPartnerja2>
 					<NazivPartnerja3>Laboratorij za </NazivPartnerja3>
 					<NazivPartnerja4>podatkovne tehnologije</NazivPartnerja4>
@@ -215,9 +226,7 @@
 			<KontaktiPodjetja>
 				<KontaktnaOseba>
 					<ImeOsebe>
-						<%=
-							postavkeRacuna[0].zanr;
-						%>
+						IME OSEBE
 					</ImeOsebe>
 				</KontaktnaOseba>
 				<Komunikacije>
@@ -325,6 +334,8 @@
 			<ObdobjeDobave>22.1.-10.6.2016</ObdobjeDobave>
 		</PostavkeRacuna>
 		<%
+		
+		
 			 var zanri = {}; var pesmi = 0;
 			 for (var i=0; i < postavkeRacuna.length; i++) {
           if (postavkeRacuna[i].zanr in zanri)
@@ -363,6 +374,7 @@
 				 vsotaOsnovZaDdv += osnovaZaDdv;
 				 vsotaVrednosti += vrednost;
 				 vsotaPopustov += popust;
+			
 		%>
 			<PostavkeRacuna>
 				<Postavka>

@@ -204,6 +204,21 @@
 				fax = customerData[0].Fax;
 				
 			}
+			else
+			{
+				console.log(customerData[0]);
+				
+				//doloci glede na uporabnika
+				nameSurname = customerData[0].FirstName + " " + customerData[0].LastName;
+				address = customerData[0].Address;
+				city = customerData[0].City;
+				postalCode = customerData[0].PostalCode;
+				country = customerData[0].Country;
+				phone = customerData[0].Phone;
+				contact = nameSurname + " (" + customerData[0].Email + ")";
+				company = customerData[0].Company;
+				fax = customerData[0].Fax;
+			}
 			//console.log(postavkeRacuna[0])
 			
 		%>

@@ -119,7 +119,8 @@ streznik.get('/kosarica', function(zahteva, odgovor) {
       odgovor.send(pesmi);
   });
 })
-
+ 
+ 
 // Vrni podrobnosti pesmi na računu
 var pesmiIzRacuna = function(racunId, callback) {
     pb.all("SELECT Track.TrackId AS stevilkaArtikla, 1 AS kolicina, \

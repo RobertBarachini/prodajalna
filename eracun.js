@@ -236,7 +236,6 @@ streznik.get('/izpisiRacun/:oblika', function(zahteva, odgovor)
   }
   else
   {
-    
     //TUKAJ SEM 12345
     console.log("isFromDatabase: " + isFromDatabase);
     

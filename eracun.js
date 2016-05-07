@@ -218,14 +218,14 @@ streznik.get('/izpisiRacun/:oblika', function(zahteva, odgovor)
       } 
       else 
       {
-<<<<<<< HEAD
+
         odgovor.setHeader('content-type', 'text/xml');
         odgovor.render('eslog', {
         vizualiziraj: zahteva.params.oblika === 'html' ? true : false,
         postavkeRacuna: pesmi,
         fromDatabase: false
         })  
-=======
+
         returnCurrentCustomer(customerSelect2, 
           function(stranka)
           {
@@ -239,7 +239,6 @@ streznik.get('/izpisiRacun/:oblika', function(zahteva, odgovor)
             })
           }
         );
->>>>>>> prikaz-racuna-trenutni
       }
     })
   }
@@ -283,8 +282,7 @@ var vrniStranke = function(callback) {
     }
   );
 };
-<<<<<<< HEAD
-=======
+
 
 
 //vrni trnuetno izbrano stranko
@@ -299,7 +297,6 @@ var returnCurrentCustomer = function(customerSelect2, callback)
     }
   );
 }
->>>>>>> prikaz-racuna-trenutni
 
 // Vrni račune iz podatkovne baze
 var vrniRacune = function(callback) {
@@ -366,23 +363,21 @@ streznik.get('/prijava', function(zahteva, odgovor) {
     });
 })
 
-<<<<<<< HEAD
-//
-=======
+
 var customerSelect2;
 
->>>>>>> prikaz-racuna-trenutni
+
 // Prikaz nakupovalne košarice za stranko
 streznik.post('/stranka', function(zahteva, odgovor) {
   var form = new formidable.IncomingForm();
   
   form.parse(zahteva, function (napaka1, polja, datoteke) {
-<<<<<<< HEAD
+
     userChosen = true;
-=======
+
     customerSelect2 = polja.seznamStrank;
     //console.log("TUKAJ 3");
->>>>>>> prikaz-racuna-trenutni
+
     odgovor.redirect('/')
   });
 })
